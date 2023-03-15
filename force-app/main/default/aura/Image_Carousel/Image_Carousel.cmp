@@ -1,0 +1,44 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes" access="global" >
+	
+    <aura:attribute name="FirstImageSource" type="String" Default="https://developer.salesforce.com/docs/component-library/app/images/examples/carousel-01.png" />
+    <aura:attribute name="FirstImageOverlayText" type="String" Default="" />
+    <aura:attribute name="FirstImageOverlayDesc" type="String" Default="" />
+    <aura:attribute name="FirstImageLink" type="String" Default="https://www.salesforce.com" />
+    
+    <aura:attribute name="SecondImageSource" type="String" Default="https://developer.salesforce.com/docs/component-library/app/images/examples/carousel-02.png" />
+    <aura:attribute name="SecondImageOverlayText" type="String" Default="" />
+    <aura:attribute name="SecondImageOverlayDesc" type="String" Default="" />
+    <aura:attribute name="SecondImageLink" type="String" Default="https://www.salesforce.com" />
+    
+    <aura:attribute name="ThirdImageSource" type="String" Default="https://developer.salesforce.com/docs/component-library/app/images/examples/carousel-03.png" />
+    <aura:attribute name="ThirdImageOverlayText" type="String" Default="" />
+    <aura:attribute name="ThirdImageOverlayDesc" type="String" Default="" />
+    <aura:attribute name="ThirdImageLink" type="String" Default="https://www.salesforce.com" />
+    
+    <aura:attribute name="ComponentTitle" type="String" Default="Our Impact" />
+
+    <lightning:carousel disableAutoRefresh="false" disableAutoScroll="false" scrollDuration="10">
+        <lightning:carouselImage
+            src = "{!v.FirstImageSource}"
+            header = "{!v.FirstImageOverlayText}"
+            description = "{!v.FirstImageOverlayDesc}"
+            alternativeText = "{!v.FirstImageOverlayText}"
+            id = "{!v.FirstImageLink}" onclick="{!c.onClick}">
+        </lightning:carouselImage>
+        <lightning:carouselImage
+            src = "{!v.SecondImageSource}"
+            header = "{!v.SecondImageOverlayText}"
+            description = "{!v.SecondImageOverlayDesc}"
+            alternativeText = "{!v.SecondImageOverlayText}"
+            id = "{!v.SecondImageLink}" onclick="{!c.onClick}">
+        </lightning:carouselImage>
+        <lightning:carouselImage
+            src = "{!v.ThirdImageSource}"
+            header = "{!v.ThirdImageOverlayText}"
+            description = "{!v.ThirdImageOverlayDesc}"
+            alternativeText = "{!v.ThirdImageOverlayText}"
+            id = "{!v.ThirdImageLink}" onclick="{!c.onClick}">
+        </lightning:carouselImage>
+    </lightning:carousel>
+
+</aura:component>

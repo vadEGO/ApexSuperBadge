@@ -1,0 +1,318 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>53.0</apiVersion>
+    <decisions>
+        <name>Has_setup_flow_already_run</name>
+        <label>Has setup flow already run?</label>
+        <locationX>638</locationX>
+        <locationY>268</locationY>
+        <defaultConnector>
+            <targetReference>Intro_Screen</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Yes_setup_has_already_run</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Setup.NGO_IDO_Initial_Setup__c.Setup_has_run_already__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Flow_has_already_run</targetReference>
+            </connector>
+            <label>Yes, setup has already run</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Is_Data_being_re_updated</name>
+        <label>Is Data being re-updated?</label>
+        <locationX>720</locationX>
+        <locationY>440</locationY>
+        <defaultConnector>
+            <targetReference>Finish_Screen</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Yes_rerun_data_flow</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>recordsToggle.value</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Launch_Deactivate_Triggers_Flow</targetReference>
+            </connector>
+            <label>Yes, rerun data flow</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Is_this_the_main_IDO</name>
+        <label>Is this the main IDO?</label>
+        <locationX>539</locationX>
+        <locationY>50</locationY>
+        <defaultConnector>
+            <targetReference>Has_setup_flow_already_run</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Yes_this_is_the_main_IDO</name>
+            <conditionLogic>or</conditionLogic>
+            <conditions>
+                <leftValueReference>$Organization.Name</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Nonprofit Industry Demo Org (NGO-IDO)</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Organization.Id</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>00D4V000001XGeV</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>mainIDO_Screen</targetReference>
+            </connector>
+            <label>Yes, this is the main IDO</label>
+        </rules>
+    </decisions>
+    <interviewLabel>NPSP - First Login Flow {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>NPSP - First Login Flow</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>FREE_FORM_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>Flow</processType>
+    <recordUpdates>
+        <name>Update_Custom_Setting</name>
+        <label>Update Custom Setting</label>
+        <locationX>1010</locationX>
+        <locationY>857</locationY>
+        <connector>
+            <targetReference>Finish_Screen</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>Setup_has_run_already__c</field>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputAssignments>
+        <object>NGO_IDO_Initial_Setup__c</object>
+    </recordUpdates>
+    <screens>
+        <name>BreakScreen</name>
+        <label>BreakScreen</label>
+        <locationX>379</locationX>
+        <locationY>789</locationY>
+        <allowBack>false</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>false</allowPause>
+        <connector>
+            <targetReference>Launch_Records_flow</targetReference>
+        </connector>
+        <fields>
+            <name>switch_to_Records</name>
+            <fieldText>&lt;p&gt;&lt;span style=&quot;font-size: 16px;&quot;&gt;Setup configuration is complete! Now we&apos;re going to update some data in the org.&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;font-size: 16px;&quot;&gt;Run &lt;/span&gt;&lt;b style=&quot;font-size: 16px;&quot;&gt;DemoBoos&lt;/b&gt;&lt;span style=&quot;font-size: 16px;&quot;&gt;t by clicking &quot;Boost&quot; button in the image below. This will take care of the following setup steps:&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;span style=&quot;font-size: 16px;&quot;&gt;Enable Chatbots&lt;/span&gt;&lt;/li&gt;&lt;li&gt;&lt;span style=&quot;font-size: 16px;&quot;&gt;Publish all Experience sites&lt;/span&gt;&lt;/li&gt;&lt;li&gt;&lt;span style=&quot;font-size: 16px;&quot;&gt;Refresh TableauCRM dataflows&lt;/span&gt;&lt;/li&gt;&lt;li&gt;&lt;span style=&quot;font-size: 16px;&quot;&gt;Run Perfect Date Wizard&lt;/span&gt;&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;&lt;span style=&quot;font-size: 16px;&quot;&gt;Once you have clicked &quot;Boost&quot; and the image on the right shows any progress, you can continue with Swift Setup by clicking &quot;Next&quot; at the bottom of this screen.&lt;/span&gt;&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <fields>
+            <name>demoBoostInitial</name>
+            <extensionName>c:ngoido_AuraLWCWrapper</extensionName>
+            <fieldType>ComponentInstance</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>true</isRequired>
+            <storeOutputAutomatically>true</storeOutputAutomatically>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>false</showHeader>
+    </screens>
+    <screens>
+        <name>Finish_Screen</name>
+        <label>Finish Screen</label>
+        <locationX>1154</locationX>
+        <locationY>635</locationY>
+        <allowBack>false</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>false</allowPause>
+        <fields>
+            <name>finish_screen_text</name>
+            <fieldText>&lt;p&gt;&lt;span style=&quot;font-size: 16px;&quot;&gt;Congratulations, you&apos;re all set! &lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;font-size: 16px;&quot;&gt;If you are updating data, some data jobs will be running in the background for a few minutes but you don&apos;t need to take any further action.&lt;/span&gt;&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>false</showHeader>
+    </screens>
+    <screens>
+        <name>Flow_has_already_run</name>
+        <label>Flow has already run</label>
+        <locationX>878</locationX>
+        <locationY>283</locationY>
+        <allowBack>false</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>false</allowPause>
+        <connector>
+            <targetReference>Is_Data_being_re_updated</targetReference>
+        </connector>
+        <fields>
+            <name>already_run</name>
+            <fieldText>&lt;p&gt;&lt;span style=&quot;font-size: 16px;&quot;&gt;It looks like you&apos;ve been here before! Initial setup has already run on this org, but we can update your data again if you&apos;d like.&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;font-size: 16px;&quot;&gt;If you don&apos;t want to refresh data, leave the toggle on Inactive and click &apos;Next.&apos;&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;b style=&quot;font-size: 16px;&quot;&gt;&lt;i&gt;If it has been less than 30 minutes since you last ran this process, do not run data again!&lt;/i&gt;&lt;/b&gt;&lt;span style=&quot;font-size: 16px;&quot;&gt; It is still updating, and you will receive errors.&lt;/span&gt;&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <fields>
+            <name>recordsToggle</name>
+            <extensionName>flowruntime:toggle</extensionName>
+            <fieldType>ComponentInstance</fieldType>
+            <inputParameters>
+                <name>label</name>
+                <value>
+                    <stringValue>Re-start Data Updates</stringValue>
+                </value>
+            </inputParameters>
+            <inputParameters>
+                <name>messageToggleActive</name>
+                <value>
+                    <stringValue>Data will be updated</stringValue>
+                </value>
+            </inputParameters>
+            <inputParameters>
+                <name>messageToggleInactive</name>
+                <value>
+                    <stringValue>Data will NOT be updated</stringValue>
+                </value>
+            </inputParameters>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>true</isRequired>
+            <storeOutputAutomatically>true</storeOutputAutomatically>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>false</showHeader>
+    </screens>
+    <screens>
+        <name>Intro_Screen</name>
+        <label>Intro Screen</label>
+        <locationX>283</locationX>
+        <locationY>387</locationY>
+        <allowBack>false</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>false</allowPause>
+        <connector>
+            <targetReference>Launch_Setup_Flow</targetReference>
+        </connector>
+        <fields>
+            <name>Display_Notice</name>
+            <fieldText>&lt;p&gt;&lt;span style=&quot;font-size: 16px;&quot;&gt;Hey {!$User.FirstName}!&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;font-size: 16px;&quot;&gt;We&apos;re going to clean up and configure your org a bit in the background. Nothing you need to worry about! Go grab some coffee; in about 15 minutes, you&apos;ll be done!&lt;/span&gt;&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>false</showHeader>
+    </screens>
+    <screens>
+        <name>mainIDO_Screen</name>
+        <label>mainIDO Screen</label>
+        <locationX>926</locationX>
+        <locationY>50</locationY>
+        <allowBack>false</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>false</allowPause>
+        <fields>
+            <name>mainScreen</name>
+            <fieldText>&lt;p&gt;&lt;span style=&quot;font-size: 16px;&quot;&gt;This is the main IDO! No need to run setup. Hi, Solution Developer!&lt;/span&gt;&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>false</showHeader>
+    </screens>
+    <screens>
+        <name>WrapperScreen</name>
+        <label>WrapperScreen</label>
+        <locationX>887</locationX>
+        <locationY>720</locationY>
+        <allowBack>false</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>false</allowPause>
+        <connector>
+            <targetReference>Launch_Records_flow</targetReference>
+        </connector>
+        <fields>
+            <name>DemoBoostInstructions</name>
+            <fieldText>&lt;p&gt;&lt;span style=&quot;font-size: 16px;&quot;&gt;First, re-run &lt;/span&gt;&lt;b style=&quot;font-size: 16px;&quot;&gt;DemoBoost&lt;/b&gt;&lt;span style=&quot;font-size: 16px;&quot;&gt; by clicking &quot;Boost&quot; button in the image below. This will take care of the following setup steps:&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;span style=&quot;font-size: 16px;&quot;&gt;Enable Chatbots&lt;/span&gt;&lt;/li&gt;&lt;li&gt;&lt;span style=&quot;font-size: 16px;&quot;&gt;Publish all Experience sites&lt;/span&gt;&lt;/li&gt;&lt;li&gt;&lt;span style=&quot;font-size: 16px;&quot;&gt;Refresh TableauCRM dataflows&lt;/span&gt;&lt;/li&gt;&lt;li&gt;&lt;span style=&quot;font-size: 16px;&quot;&gt;Run Perfect Date Wizard&lt;/span&gt;&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;&lt;span style=&quot;font-size: 16px;&quot;&gt;Once you have clicked &quot;Boost&quot; and the image on the right shows any progress, you can continue with Swift Setup by clicking &quot;Next&quot; at the bottom of this screen.&lt;/span&gt;&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <fields>
+            <name>wrapper</name>
+            <extensionName>c:ngoido_AuraLWCWrapper</extensionName>
+            <fieldType>ComponentInstance</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>true</isRequired>
+            <storeOutputAutomatically>true</storeOutputAutomatically>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>true</showHeader>
+    </screens>
+    <start>
+        <locationX>50</locationX>
+        <locationY>191</locationY>
+        <connector>
+            <targetReference>Is_this_the_main_IDO</targetReference>
+        </connector>
+    </start>
+    <status>Active</status>
+    <subflows>
+        <name>Launch_Deactivate_Triggers_Flow</name>
+        <label>Launch Deactivate Triggers Flow</label>
+        <locationX>719</locationX>
+        <locationY>636</locationY>
+        <connector>
+            <targetReference>WrapperScreen</targetReference>
+        </connector>
+        <flowName>sfdoido_Deactivate_NPSP_Triggers</flowName>
+    </subflows>
+    <subflows>
+        <name>Launch_Records_flow</name>
+        <label>Launch Records flow</label>
+        <locationX>709</locationX>
+        <locationY>855</locationY>
+        <connector>
+            <targetReference>Update_Custom_Setting</targetReference>
+        </connector>
+        <flowName>NPSP_Parent_Adjustment_Flow</flowName>
+    </subflows>
+    <subflows>
+        <name>Launch_Setup_Flow</name>
+        <label>Launch Setup Flow</label>
+        <locationX>283</locationX>
+        <locationY>548</locationY>
+        <connector>
+            <targetReference>BreakScreen</targetReference>
+        </connector>
+        <flowName>NPSP_Parent_Adjustment_Flow_Stage_2</flowName>
+    </subflows>
+    <variables>
+        <name>dataToggle</name>
+        <dataType>Boolean</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+</Flow>

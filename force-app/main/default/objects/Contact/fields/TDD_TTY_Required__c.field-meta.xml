@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>TDD_TTY_Required__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Indicates that a TeleTYpe (TTY) or Telecommunications Device for the Deaf (TDD) tool should be used for audio communications.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Indicates that a TeleTYpe (TTY) or Telecommunications Device for the Deaf (TDD) tool should be used for audio communications.</inlineHelpText>
+    <label>TDD/TTY Required</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <type>Checkbox</type>
+</CustomField>

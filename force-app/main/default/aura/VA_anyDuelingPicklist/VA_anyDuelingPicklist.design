@@ -1,0 +1,28 @@
+<design:component label="Flex Dueling Picklist">
+    <design:attribute name="buttonText" label="Button Text" description="Text shown in the button that opens the modal." default="Omni Supervisor Admin"/>
+    <design:attribute name="buttonStyle" label="Button Style" description="Styling of the modal button." datasource="apex://VA_ADP_myStylePicklist"/>
+    <design:attribute name="buttonIcon" label="Button Icon" description="Icon of the modal button." datasource="apex://VA_ADP_myIconPicklist"/>
+    <design:attribute name="buttonIconPosition" label="Button Icon Position" description="Icon position of the modal button." datasource="apex://VA_ADP_myIconPositionPicklist"/>
+    
+    <design:attribute name="modalDebug" label="Modal Debug" description="Displays the modal. Meant to be used while defining attributes in Lightning Page Builder, deselect before closing!" default="false"/>
+    <design:attribute name="modalTitle" label="Modal Title" description="Text that displays at the top of the modal." default="Omni Supervisor Admin"/>
+    <design:attribute name="searchLabel" label="Search Label" description="Label on top of the search/filter bar." default="Search/Filter"/>
+    <design:attribute name="searchPlaceholder" label="Search Placeholder" description="Placeholder text for the search bar." default="Type search criteria"/>
+    
+    <design:attribute name="hasPicklists" label="Has Picklists?" description="Should there be a filtering picklist? (makes the sides more simple)" default="true"/>
+    <design:attribute name="picklistPlaceholder" label="Picklist Placeholder" description="Text that is shown as default picklist value. " default="Select Profile"/>
+    <design:attribute name="leftLabel" label="Left Picklist Label" description="Label on top of left side picklist." default="From"/>
+    <design:attribute name="rightLabel" label="Right Picklist Label" description="Label on top of right side picklist." default="To"/>
+    
+    <design:attribute name="picklistObject" label="Filtering Picklist Object API Name" description="What's the API Name of the filtering picklist object?" default="Profile"/>
+    <design:attribute name="picklistField" label="Filtering Picklist Field API Name" description="What's the API Name of the filtering picklist object?" default="Name"/>
+    <design:attribute name="picklistFilter" label="Filtering Picklist Search Filter" description="How should we filter the filtering picklist?" default="*"/>
+    
+    <design:attribute name="mainObject" label="Main Object (API Name)" description="What's the API Name of the object that will be changed?" default="User"/>
+    <design:attribute name="mainObjectSearchField" label="Search Field (API Name)" description="Field in main object where the search will happen." default="Name"/>
+    <design:attribute name="mainLookupToPicklist" label="Lookup to Picklist (API Name)" description="Field that connects main object to the picklist object" default="profileId"/>
+    <design:attribute name="maxRecords" label="Record Limit" description="How many records should be displayed in the dueling picklists?" default="10"/>
+    
+    <design:attribute name="saveButtonLabel" label="Save Button Label" description="Text shown in the button that opens the saves changes." default="Save"/>
+    <design:attribute name="cancelButtonLabel" label="Cancel Button Label" description="Text shown in the button that cancels changes." default="Cancel"/>
+</design:component>

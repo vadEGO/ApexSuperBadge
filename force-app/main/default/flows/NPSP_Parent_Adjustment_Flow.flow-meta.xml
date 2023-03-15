@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>51.0</apiVersion>
+    <description>Runs multiple subflows for initial demo org configuration. This Flow is NON SETUP objects.</description>
+    <interviewLabel>NPSP - Parent Adjustment Flow {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>NPSP - Parent Adjustment Flow (Records)</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>FREE_FORM_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <start>
+        <locationX>213</locationX>
+        <locationY>17</locationY>
+        <connector>
+            <targetReference>Launch_Service_Sessions_Date_Flow</targetReference>
+        </connector>
+    </start>
+    <status>Active</status>
+    <subflows>
+        <name>Launch_Flow_to_activate_NPSP_Triggers</name>
+        <label>Launch Flow to activate NPSP Triggers</label>
+        <locationX>927</locationX>
+        <locationY>243</locationY>
+        <flowName>sfdoido_Activate_NPSP_Triggers</flowName>
+    </subflows>
+    <subflows>
+        <name>Launch_Intake_Records_Flow</name>
+        <label>Launch Intake Records Flow</label>
+        <locationX>710</locationX>
+        <locationY>220</locationY>
+        <connector>
+            <targetReference>Launch_Flow_to_activate_NPSP_Triggers</targetReference>
+        </connector>
+        <flowName>NPSP_Update_Intake_Records</flowName>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </subflows>
+    <subflows>
+        <name>Launch_Service_Sessions_Date_Flow</name>
+        <label>Launch Service Sessions Date Flow</label>
+        <locationX>291</locationX>
+        <locationY>185</locationY>
+        <connector>
+            <targetReference>Launch_Intake_Records_Flow</targetReference>
+        </connector>
+        <flowName>NPSP_Update_Service_Sessions_for_Registration_Demo</flowName>
+    </subflows>
+</Flow>

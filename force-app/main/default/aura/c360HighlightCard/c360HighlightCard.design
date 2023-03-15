@@ -1,0 +1,38 @@
+<design:component label="360 Contact Card">
+
+    <design:attribute name="backgroundHexColor" label="Background Hex Color" default="#0070d2" description="Set a background color with a hex code, must remove the image from above field, examples
+                                     ScienceBlue = #0070d2, MidnightBlue = #00396b, ServicePurple = # 963cbd" />
+    <design:attribute name="backgroundImageUrl" label="Background Image URL" default="" description="URL for background image, for best results use image with height of 100px and at least 620px wide,
+                                   overwrites background color" />
+    <design:attribute name="metric1Label" label="Label for first customer metric" default="Metric 1" description="set label for the first customer 360 metric" />
+    <design:attribute name="metric1Icon" label="Icon name for first customer metric" default="standard:reward" description="set icon name to change the icon for the first customer 360 metric" />
+    <design:attribute name="metric1IconSize" label="First metric icon size" default="large" description="Set the size of the icon, utility icons render larger than standard and custom so use this to match sizes" datasource="small,medium,large" />
+    <design:attribute name="metric2Label" label="Label for second customer metric" default="Metric 2" description="set label for the second customer 360 metric" />
+    <design:attribute name="metric2Icon" label="Icon name for second customer metric" default="custom:custom93" description="set icon name to change the icon for the second customer 360 metric" />
+    <design:attribute name="metric2IconSize" label="Second metric icon size" default="large" description="Set the size of the icon, utility icons render larger than standard and custom so use this to match sizes" datasource="small,medium,large" />
+    <design:attribute name="metric3Label" label="Label for third customer metric" default="Metric 3" description="set label for the third customer 360 metric" />
+    <design:attribute name="metric3Icon" label="Icon name for third customer metric" default="standard:reward" description="set icon name to change the icon for the third customer 360 metric" />
+    <design:attribute name="metric3IconSize" label="Third metric icon size" default="large" description="Set the size of the icon, utility icons render larger than standard and custom so use this to match sizes" datasource="small,medium,large" />
+    <design:attribute name="metric4Label" label="Label for fourth customer metric" default="Metric 4" description="set label for the fourth customer 360 metric" />
+    <design:attribute name="metric4Icon" label="Icon name for fourth customer metric" default="standard:reward" description="set icon name to change the icon for the fourth customer 360 metric" />
+    <design:attribute name="metric4IconSize" label="Fourth metric icon size" default="large" description="Set the size of the icon, utility icons render larger than standard and custom so use this to match sizes" datasource="small,medium,large" />
+    <design:attribute name="hideSecondRow" label="Hide Second Metric Row" default="false" description="Hide the second row of metrics for use cases where it does not make sense." />
+    <design:attribute name="hideCust360Id" label="Hide Customer360 Id Card" default="false" description="Hide Customer360 Id card for use cases where it does not make sense." />
+    <design:attribute name="hideEinstein" label="Hide Einstein Card" default="false" description="Hide Einstein section for use cases where it does not make sense." />
+    <design:attribute name="threshold1" label="Churn lower threshold" default="20" description="Churn risk lower threshold, values less than or equal will be GREEN" />
+    <design:attribute name="threshold2" label="Churn middle threshold" default="50" description="Churn risk upper threshold, values less than or equal will be YELLOW, values greater than will be RED" />
+    <design:attribute name="iconColor" label="Einstein icon color" default="#0070d2" description="Set hex color for einstein icon" />
+    <design:attribute name="einsteinText" label="Einstein Text" default="Predicted Propensity to Give" description="Enter the text that you would like to appear above the Einstein prediction" />
+    <design:attribute name="einsteinDescription" label="Einstein Result Description" default="They are highly active and engaged with your organization and are more likely to give." description="Enter the text that you would like to appear below the Einstein prediction" />
+    <design:attribute name="pullMargin" label="Pull Margin to Edge" default="false" description="Use this toggle when added to pinned left sidebar to pull margin to the edge of the sidebar" />
+
+    <!-- Modify the object API name below if you are using this component on an object
+    other than the Contact object -->
+
+    <sfdc:objects>
+        <sfdc:object>Contact</sfdc:object>
+    </sfdc:objects>
+
+
+
+</design:component>
