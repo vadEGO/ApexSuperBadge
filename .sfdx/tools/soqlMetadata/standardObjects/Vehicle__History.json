@@ -1,0 +1,353 @@
+{
+  "fields": [
+    {
+      "aggregatable": true,
+      "custom": false,
+      "defaultValue": null,
+      "extraTypeInfo": null,
+      "filterable": true,
+      "groupable": true,
+      "inlineHelpText": null,
+      "label": "Entity History ID",
+      "name": "Id",
+      "nillable": false,
+      "picklistValues": [],
+      "referenceTo": [],
+      "relationshipName": null,
+      "sortable": true,
+      "type": "id"
+    },
+    {
+      "aggregatable": false,
+      "custom": false,
+      "defaultValue": false,
+      "extraTypeInfo": null,
+      "filterable": true,
+      "groupable": true,
+      "inlineHelpText": null,
+      "label": "Deleted",
+      "name": "IsDeleted",
+      "nillable": false,
+      "picklistValues": [],
+      "referenceTo": [],
+      "relationshipName": null,
+      "sortable": true,
+      "type": "boolean"
+    },
+    {
+      "aggregatable": true,
+      "custom": false,
+      "defaultValue": null,
+      "extraTypeInfo": null,
+      "filterable": true,
+      "groupable": true,
+      "inlineHelpText": null,
+      "label": "Parent ID",
+      "name": "ParentId",
+      "nillable": false,
+      "picklistValues": [],
+      "referenceTo": [
+        "Vehicle__c"
+      ],
+      "relationshipName": "Parent",
+      "sortable": true,
+      "type": "reference"
+    },
+    {
+      "aggregatable": true,
+      "custom": false,
+      "defaultValue": null,
+      "extraTypeInfo": null,
+      "filterable": true,
+      "groupable": true,
+      "inlineHelpText": null,
+      "label": "Created By ID",
+      "name": "CreatedById",
+      "nillable": false,
+      "picklistValues": [],
+      "referenceTo": [
+        "User"
+      ],
+      "relationshipName": "CreatedBy",
+      "sortable": true,
+      "type": "reference"
+    },
+    {
+      "aggregatable": true,
+      "custom": false,
+      "defaultValue": null,
+      "extraTypeInfo": null,
+      "filterable": true,
+      "groupable": false,
+      "inlineHelpText": null,
+      "label": "Created Date",
+      "name": "CreatedDate",
+      "nillable": false,
+      "picklistValues": [],
+      "referenceTo": [],
+      "relationshipName": null,
+      "sortable": true,
+      "type": "datetime"
+    },
+    {
+      "aggregatable": true,
+      "custom": false,
+      "defaultValue": null,
+      "extraTypeInfo": null,
+      "filterable": true,
+      "groupable": true,
+      "inlineHelpText": null,
+      "label": "Changed Field",
+      "name": "Field",
+      "nillable": false,
+      "picklistValues": [
+        {
+          "active": true,
+          "defaultValue": false,
+          "label": "Air Conditioner",
+          "validFor": null,
+          "value": "Air_Conditioner__c"
+        },
+        {
+          "active": true,
+          "defaultValue": false,
+          "label": "Awning",
+          "validFor": null,
+          "value": "Awning__c"
+        },
+        {
+          "active": true,
+          "defaultValue": false,
+          "label": "Backup Camera/Monitor",
+          "validFor": null,
+          "value": "Backup_Camera_Monitor__c"
+        },
+        {
+          "active": true,
+          "defaultValue": false,
+          "label": "Bathroom Hookup",
+          "validFor": null,
+          "value": "Bathroom_Hookup__c"
+        },
+        {
+          "active": true,
+          "defaultValue": false,
+          "label": "Bathrooms",
+          "validFor": null,
+          "value": "Bathrooms__c"
+        },
+        {
+          "active": true,
+          "defaultValue": false,
+          "label": "Bedrooms",
+          "validFor": null,
+          "value": "Bedrooms__c"
+        },
+        {
+          "active": true,
+          "defaultValue": false,
+          "label": "Created.",
+          "validFor": null,
+          "value": "created"
+        },
+        {
+          "active": true,
+          "defaultValue": false,
+          "label": "Fancy Sound System",
+          "validFor": null,
+          "value": "Fancy_Sound_System__c"
+        },
+        {
+          "active": true,
+          "defaultValue": false,
+          "label": "Feed event",
+          "validFor": null,
+          "value": "feedEvent"
+        },
+        {
+          "active": true,
+          "defaultValue": false,
+          "label": "Generator",
+          "validFor": null,
+          "value": "Generator__c"
+        },
+        {
+          "active": true,
+          "defaultValue": false,
+          "label": "Individual Merged",
+          "validFor": null,
+          "value": "individualMerged"
+        },
+        {
+          "active": true,
+          "defaultValue": false,
+          "label": "Levelers",
+          "validFor": null,
+          "value": "Levelers__c"
+        },
+        {
+          "active": true,
+          "defaultValue": false,
+          "label": "License Plate",
+          "validFor": null,
+          "value": "License_Plate__c"
+        },
+        {
+          "active": true,
+          "defaultValue": false,
+          "label": "Make",
+          "validFor": null,
+          "value": "Make__c"
+        },
+        {
+          "active": true,
+          "defaultValue": false,
+          "label": "Model",
+          "validFor": null,
+          "value": "Model__c"
+        },
+        {
+          "active": true,
+          "defaultValue": false,
+          "label": "Owner",
+          "validFor": null,
+          "value": "Owner"
+        },
+        {
+          "active": true,
+          "defaultValue": false,
+          "label": "Owner (Accepted)",
+          "validFor": null,
+          "value": "ownerAccepted"
+        },
+        {
+          "active": true,
+          "defaultValue": false,
+          "label": "Owner (Assignment)",
+          "validFor": null,
+          "value": "ownerAssignment"
+        },
+        {
+          "active": true,
+          "defaultValue": false,
+          "label": "Power",
+          "validFor": null,
+          "value": "Power__c"
+        },
+        {
+          "active": true,
+          "defaultValue": false,
+          "label": "Propane Tank",
+          "validFor": null,
+          "value": "Propane_Tank__c"
+        },
+        {
+          "active": true,
+          "defaultValue": false,
+          "label": "Recommended Passengers",
+          "validFor": null,
+          "value": "Recommended_Passengers__c"
+        },
+        {
+          "active": true,
+          "defaultValue": false,
+          "label": "Record locked.",
+          "validFor": null,
+          "value": "locked"
+        },
+        {
+          "active": true,
+          "defaultValue": false,
+          "label": "Record unlocked.",
+          "validFor": null,
+          "value": "unlocked"
+        },
+        {
+          "active": true,
+          "defaultValue": false,
+          "label": "Roof Mounted Antenna",
+          "validFor": null,
+          "value": "Roof_Mounted_Antenna__c"
+        },
+        {
+          "active": true,
+          "defaultValue": false,
+          "label": "Shower",
+          "validFor": null,
+          "value": "Shower__c"
+        },
+        {
+          "active": true,
+          "defaultValue": false,
+          "label": "Tub",
+          "validFor": null,
+          "value": "Tub__c"
+        },
+        {
+          "active": true,
+          "defaultValue": false,
+          "label": "Type",
+          "validFor": null,
+          "value": "Type__c"
+        },
+        {
+          "active": true,
+          "defaultValue": false,
+          "label": "Vehicle Name",
+          "validFor": null,
+          "value": "Name"
+        },
+        {
+          "active": true,
+          "defaultValue": false,
+          "label": "VIN Number",
+          "validFor": null,
+          "value": "VIN_Number__c"
+        }
+      ],
+      "referenceTo": [],
+      "relationshipName": null,
+      "sortable": true,
+      "type": "picklist"
+    },
+    {
+      "aggregatable": false,
+      "custom": false,
+      "defaultValue": null,
+      "extraTypeInfo": null,
+      "filterable": false,
+      "groupable": false,
+      "inlineHelpText": null,
+      "label": "Old Value",
+      "name": "OldValue",
+      "nillable": true,
+      "picklistValues": [],
+      "referenceTo": [],
+      "relationshipName": null,
+      "sortable": true,
+      "type": "anyType"
+    },
+    {
+      "aggregatable": false,
+      "custom": false,
+      "defaultValue": null,
+      "extraTypeInfo": null,
+      "filterable": false,
+      "groupable": false,
+      "inlineHelpText": null,
+      "label": "New Value",
+      "name": "NewValue",
+      "nillable": true,
+      "picklistValues": [],
+      "referenceTo": [],
+      "relationshipName": null,
+      "sortable": true,
+      "type": "anyType"
+    }
+  ],
+  "label": "History: Vehicle",
+  "childRelationships": [],
+  "custom": false,
+  "name": "Vehicle__History",
+  "queryable": true
+}
