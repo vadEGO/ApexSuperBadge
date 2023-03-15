@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WaveXmd xmlns="http://soap.sforce.com/2006/04/metadata">
+    <dataset>user2</dataset>
+    <dimensions>
+        <field>Name</field>
+        <isDerived>false</isDerived>
+        <linkTemplate>/{{row.Id}}</linkTemplate>
+        <linkTooltip>Open User</linkTooltip>
+        <recordIdField>Id</recordIdField>
+        <sortIndex>0</sortIndex>
+    </dimensions>
+    <dimensions>
+        <field>UniqueUserName</field>
+        <isDerived>false</isDerived>
+        <label>Unique User Name</label>
+        <linkTemplate>/{{row.Id}}</linkTemplate>
+        <linkTooltip>Open User</linkTooltip>
+        <recordIdField>Id</recordIdField>
+        <sortIndex>1</sortIndex>
+    </dimensions>
+    <measures>
+        <field>quota_attainment</field>
+        <formatCustomFormat>[&quot;#,###%&quot;,100]</formatCustomFormat>
+        <isDerived>true</isDerived>
+        <label>quota_attainment</label>
+        <showInExplorer>false</showInExplorer>
+        <sortIndex>0</sortIndex>
+    </measures>
+    <measures>
+        <field>measure</field>
+        <formatCustomFormat>[&quot;#,###%&quot;,100]</formatCustomFormat>
+        <isDerived>true</isDerived>
+        <label>measure</label>
+        <showInExplorer>false</showInExplorer>
+        <sortIndex>1</sortIndex>
+    </measures>
+    <measures>
+        <field>win_rate</field>
+        <formatCustomFormat>[&quot;#,###%&quot;,100]</formatCustomFormat>
+        <isDerived>true</isDerived>
+        <label>win_rate</label>
+        <showInExplorer>false</showInExplorer>
+        <sortIndex>2</sortIndex>
+    </measures>
+    <measures>
+        <field>measure_avg</field>
+        <formatCustomFormat>[&quot;#,###%&quot;,100]</formatCustomFormat>
+        <isDerived>true</isDerived>
+        <label>measure_avg</label>
+        <showInExplorer>false</showInExplorer>
+        <sortIndex>3</sortIndex>
+    </measures>
+</WaveXmd>

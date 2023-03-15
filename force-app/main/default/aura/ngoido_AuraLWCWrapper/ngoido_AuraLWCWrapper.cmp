@@ -1,0 +1,3 @@
+<aura:component implements="lightning:availableForFlowScreens" access="global">
+<xdo:XDO_Automation_Canvas aura:id="childLwcCompId"></xdo:XDO_Automation_Canvas>
+</aura:component>

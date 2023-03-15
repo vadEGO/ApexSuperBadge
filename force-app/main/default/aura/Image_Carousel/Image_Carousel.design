@@ -1,0 +1,20 @@
+<design:component>
+	<design:attribute name="FirstImageSource" label="First Image - Image Source URL" />
+    <design:attribute name="FirstImageOverlayText" Default="" label="First Image - Overlay Header Text" />
+    <design:attribute name="FirstImageOverlayDesc" Default="" label="First Image - Overlay Description Text" />
+    <design:attribute name="FirstImageLink" Default="https://www.salesforce.com" label="First Image - Link" />
+    
+    <design:attribute name="SecondImageSource" label="Second Image - Image Source URL"/>
+    <design:attribute name="SecondImageOverlayText" Default="" label="Second Image - Overlay Header Text" />
+    <design:attribute name="SecondImageOverlayDesc" Default="" label="Second Image - Overlay Description Text" />
+    <design:attribute name="SecondImageLink" Default="https://www.salesforce.com" label="Second Image - Link" />
+    
+    <design:attribute name="ThirdImageSource" label="Third Image - Image Source URL" />
+    <design:attribute name="ThirdImageOverlayText" Default="" label="Third Image - Overlay Header Text" />
+    <design:attribute name="ThirdImageOverlayDesc" Default="" label="Third Image - Overlay Description Text" />
+    <design:attribute name="ThirdImageLink" Default="https://www.salesforce.com" label="Third Image - Link" />
+    
+    <design:attribute name="ComponentTitle" Default="Our Impact" label="Image Component Title" />
+    
+    
+</design:component>

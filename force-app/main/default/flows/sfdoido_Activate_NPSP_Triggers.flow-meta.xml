@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>53.0</apiVersion>
+    <assignments>
+        <name>Assign_dummy_variable</name>
+        <label>Assign dummy variable</label>
+        <locationX>308</locationX>
+        <locationY>196</locationY>
+        <assignmentItems>
+            <assignToReference>dummy</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>updated</stringValue>
+            </value>
+        </assignmentItems>
+    </assignments>
+    <interviewLabel>sfdoido Activate NPSP Triggers {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>sfdoido Activate NPSP Triggers</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>FREE_FORM_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <start>
+        <locationX>50</locationX>
+        <locationY>50</locationY>
+        <connector>
+            <targetReference>Assign_dummy_variable</targetReference>
+        </connector>
+    </start>
+    <status>Draft</status>
+    <variables>
+        <name>dummy</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <value>
+            <stringValue>dummy</stringValue>
+        </value>
+    </variables>
+</Flow>

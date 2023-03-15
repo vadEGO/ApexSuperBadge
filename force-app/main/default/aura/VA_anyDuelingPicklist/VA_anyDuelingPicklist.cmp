@@ -1,0 +1,115 @@
+<aura:component implements="flexipage:availableForAllPageTypes,force:appHostable" access="global" 
+                controller="VA_anyDuelingPicklistApex">
+    
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <ltng:require styles="/resource/SDLC213/assets/styles/salesforce-lightning-design-system.css" />
+    
+    <aura:attribute name="rightPicklistValue" type="String" access="public"/>
+    <aura:attribute name="leftPicklistValue" type="String" access="public"/>
+    <aura:attribute name="leftList" type="List" access="public"/>
+    <aura:attribute name="rightList" type="List" access="public"/>
+    
+    <!-- Design Attributes -->
+    <aura:attribute name="buttonText" type="String"/>
+    <aura:attribute name="buttonStyle" type="String"/>
+    <aura:attribute name="buttonIcon" type="String"/>
+    <aura:attribute name="buttonIconPosition" type="String"/>
+    
+    <aura:attribute name="modalDebug" type="Boolean"/>
+    <aura:attribute name="modalTitle" type="String"/>
+    <aura:attribute name="searchLabel" type="String"/>
+    <aura:attribute name="searchPlaceholder" type="String"/>
+    
+    <aura:attribute name="leftLabel" type="String"/>
+    <aura:attribute name="rightLabel" type="String"/>
+    <aura:attribute name="hasPicklists" type="Boolean"/>
+    <aura:attribute name="picklistPlaceholder" type="String"/>
+    
+    <aura:attribute name="picklistObject" type="String"/>
+    <aura:attribute name="picklistField" type="String"/>
+    <aura:attribute name="picklistFilter" type="String"/>
+    
+    <aura:attribute name="mainObject" type="String"/>
+    <aura:attribute name="mainObjectSearchField" type="String"/>
+    <aura:attribute name="mainLookupToPicklist" type="String"/>
+    <aura:attribute name="maxRecords" type="String"/>
+    
+    <aura:attribute name="saveButtonLabel" type="String"/>
+    <aura:attribute name="cancelButtonLabel" type="String"/>
+    
+    <div class="slds-form-element slds-align_absolute-center">
+        <lightning:button name="{!v.buttonText}" label="{!v.buttonText}" class="{!'slds-button ' + v.buttonStyle}"
+                          iconName="{!v.buttonIcon}" iconPosition="{!v.buttonIconPosition}"
+                          onclick="{!c.showModal}"/>
+    </div>
+    
+    <div role="dialog" aura:id="searchModal" tabindex="-1" class="slds-modal slds-fade-in-hide" aria-labelledby="header43">
+        <div class="slds-modal__container">
+            <div class="slds-modal__header">
+                <h2 id="header43" class="slds-text-heading--medium">{!v.modalTitle}</h2>
+            </div>
+            <div class="slds-modal__content slds-p-around--medium ">
+                <form>
+                    <div style="padding-left: 38px;">
+                        <lightning:input aura:id="searchText" label="{!v.searchLabel}" placeholder="{!v.searchPlaceholder}" onchange="{!c.getLeftRecords}"  style="width: 229px;"/>
+                    </div>
+                </form>
+                <br/>
+                <div class="slds-grid slds-wrap slds-grid--pull-padded slds-align_absolute-center">
+                    <div class="slds-p-horizontal--small slds-size--1-of-2 slds-medium-size--2-of-6 slds-large-size--5-of-12">
+                        <div class="slds-form-element">
+                            <aura:renderIf isTrue="{!v.hasPicklists}">
+                                <lightning:select aura:id="selectLeft" name="selectLeft" label="{!v.leftLabel}" 
+                                                  value="{!v.leftPicklistValue}" onchange="{!c.getLeftRecords}">
+                                    <option value="" class="">-- {!v.picklistPlaceholder} --</option>
+                                    <aura:iteration items="{!v.leftList}" var="item">
+                                        <option text="{!item.label}" value="{!item.value}"/>
+                                    </aura:iteration>
+                                </lightning:select>
+                            </aura:renderIf>
+                            <br/>
+                            <div class="slds-form-element__control">
+                                <ui:inputSelect aura:id="leftOptions" class="slds-select select--height " multiple="true">                                 
+                                </ui:inputSelect> 
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slds-align-middle slds-size--1-of-2 slds-medium-size--1-of-6 slds-large-size--1-of-12">
+                        <br/><br/><br/><br/>
+                        <button class="slds-button slds-button--icon slds-align_absolute-center" onclick="{!c.moveRight}">
+                            <lightning:icon iconName="utility:chevronright" size="small"/>
+                        </button>
+                        <br/><br/>
+                        <button class="slds-button slds-button--icon slds-align_absolute-center" onclick="{!c.moveLeft}">
+                            <lightning:icon iconName="utility:chevronleft" size="small"/>
+                        </button>
+                    </div>
+                    <div class="slds-p-horizontal--small slds-size--1-of-2 slds-medium-size--2-of-6 slds-large-size--5-of-12">
+                        <div class="slds-form-element">
+                            <aura:renderIf isTrue="{!v.hasPicklists}">
+                                <lightning:select aura:id="selectRight" name="selectRight" label="{!v.rightLabel}" 
+                                                  value="{!v.rightPicklistValue}" onchange="{!c.getRightRecords}">
+                                    <option value="">-- {!v.picklistPlaceholder} --</option>
+                                    <aura:iteration items="{!v.rightList}" var="item">
+                                        <option text="{!item.label}" value="{!item.value}"/>
+                                    </aura:iteration>
+                                </lightning:select>
+                            </aura:renderIf>
+                            <br/>
+                            <div class="slds-form-element__control">
+                                <ui:inputSelect aura:id="rightOptions"  class="slds-select select--height" multiple="true">                                    
+                                </ui:inputSelect>
+                            </div>
+                        </div>
+                    </div>                    
+                </div>
+                <br/>
+            </div>
+            <div class="slds-modal__footer">
+                <button class="slds-button slds-button--neutral" onclick="{!c.closeModal}">{!v.cancelButtonLabel}</button>
+                <button class="slds-button slds-button--neutral slds-button--brand" onclick="{!c.save}">{!v.saveButtonLabel}</button>
+            </div>
+        </div>
+    </div>
+    <div aura:id="backdrop" class="slds-backdrop slds-backdrop--hide"></div>
+</aura:component>

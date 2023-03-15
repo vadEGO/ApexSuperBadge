@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WaveXmd xmlns="http://soap.sforce.com/2006/04/metadata">
+    <dataset>CampaignInfluence</dataset>
+    <dimensions>
+        <field>Campaign.Name</field>
+        <isDerived>false</isDerived>
+        <label>Campaign Name</label>
+        <linkTemplate>/{{CampaignId}}</linkTemplate>
+        <linkTooltip>Open Campaign</linkTooltip>
+        <recordIdField>CampaignId</recordIdField>
+        <sortIndex>0</sortIndex>
+    </dimensions>
+    <dimensions>
+        <field>Account.Name</field>
+        <isDerived>false</isDerived>
+        <label>Account Name</label>
+        <linkTemplate>/{{Opportunity.AccountId}}</linkTemplate>
+        <linkTooltip>Open Account</linkTooltip>
+        <recordIdField>Opportunity.AccountId</recordIdField>
+        <sortIndex>1</sortIndex>
+    </dimensions>
+    <dimensions>
+        <field>Opportunity.Name</field>
+        <isDerived>false</isDerived>
+        <label>Opportunity Name</label>
+        <linkTemplate>/{{OpportunityId}}</linkTemplate>
+        <linkTooltip>Open Opportunity</linkTooltip>
+        <recordIdField>OpportunityId</recordIdField>
+        <sortIndex>2</sortIndex>
+    </dimensions>
+    <measures>
+        <field>Influence</field>
+        <formatCustomFormat>[&quot;###.##%&quot;,1]</formatCustomFormat>
+        <isDerived>false</isDerived>
+        <sortIndex>0</sortIndex>
+    </measures>
+    <measures>
+        <field>percent</field>
+        <formatCustomFormat>[&quot;#,###%&quot;,100]</formatCustomFormat>
+        <isDerived>true</isDerived>
+        <label>percent</label>
+        <showInExplorer>false</showInExplorer>
+        <sortIndex>0</sortIndex>
+    </measures>
+    <measures>
+        <field>RevenueShare</field>
+        <formatCustomFormat>[&quot;$#,###.##&quot;,1]</formatCustomFormat>
+        <isDerived>false</isDerived>
+        <label>Revenue Share</label>
+        <showInExplorer>true</showInExplorer>
+        <sortIndex>1</sortIndex>
+    </measures>
+    <measures>
+        <field>ROI</field>
+        <formatCustomFormat>[&quot;#,###%&quot;,100]</formatCustomFormat>
+        <isDerived>true</isDerived>
+        <label>ROI</label>
+        <showInExplorer>false</showInExplorer>
+        <sortIndex>1</sortIndex>
+    </measures>
+    <measures>
+        <field>Campaign.ActualCost</field>
+        <formatCustomFormat>[&quot;$#,###.##&quot;,1]</formatCustomFormat>
+        <isDerived>false</isDerived>
+        <sortIndex>2</sortIndex>
+    </measures>
+</WaveXmd>
