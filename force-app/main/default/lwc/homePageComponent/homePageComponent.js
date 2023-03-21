@@ -3,7 +3,7 @@ import { ShowToastEvent } from 'lightning/platformShowToastEvent';
 
 export default class MiscNotification extends LightningElement {
     _title = 'My Sample Title';
-    message = 'Sample Message';
+    message = 'We are using GitHub Acitons';
     variant = 'error';
     variantOptions = [
         { label: 'error', value: 'error' },
