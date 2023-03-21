@@ -2,7 +2,7 @@ import { LightningElement } from 'lwc';
 import { ShowToastEvent } from 'lightning/platformShowToastEvent';
 
 export default class MiscNotification extends LightningElement {
-    _title = 'My Sample Title';
+    _title = 'Bedrock Badge';
     message = 'We are using GitHub Acitons';
     variant = 'error';
     variantOptions = [
