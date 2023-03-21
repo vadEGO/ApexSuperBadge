@@ -1,11 +1,15 @@
 <template>
-    <lightning-card title="This is my Home Page Component"> 
-   <div class="slds-text-heading_large">
-        <h1>homePageComponent</h1>
-        <p>This is Dev 1 Team</p>
-        <p>New Change 234567890</p>
-        
-</div>
+    <lightning-card title="MiscNotification" icon-name="custom:custom19">
+        <div class="slds-m-around_medium">
+            <lightning-input label="Title" value={_title} onchange={titleChange}></lightning-input>
+            <lightning-input label="Message" value={message} onchange={messageChange}></lightning-input>
+            <lightning-combobox
+                label="Variant"
+                value={variant}
+                onchange={variantChange}
+                options={variantOptions}>
+            </lightning-combobox>
+            <p class="slds-m-vertical_small"><lightning-button label="Show Notification" onclick={showNotification}></lightning-button></p>
+        </div>
     </lightning-card>
-
 </template>
