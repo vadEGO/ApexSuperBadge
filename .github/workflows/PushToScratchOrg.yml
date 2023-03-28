@@ -10,6 +10,7 @@
 
 name: Push to Scratch Org
 on:
+ workflow_dispatch:
   push:
     branches:
       - main
