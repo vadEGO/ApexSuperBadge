@@ -7,18 +7,18 @@ on:
       name:
         type: string
         required: true
-        description:Org name (no spaces)
+        description: CumulusCI org name (no spaces)
         default: my-org
       flow:
         type: choice
-        description: Org flow
+        description: CumulusCI flow
         default: dev_org
         options:
         - dev_org
         - install_prod
       org:
         type: choice
-        description: dev org
+        description: CumulusCI org
         default: dev
         options:
         - dev
