@@ -8,7 +8,7 @@ on:
     pull_request:
       # The events are that a PR is opened, or when a commit is pushed
       # to a branch that has an existing pull request
-      types: [opened, synchronize]
+      types: [synchronize]
       # The branches filter allows to specify that this workflow should only
       # run if the branch name is "develop". This way we prevent this workflow
       # from running when PRs are opened on other branches
@@ -132,7 +132,7 @@ jobs:
 
             # The URL is stored in the Github Secret named SFDX_UAT_URL
             # so here we store the URL into a text file
-            - name: 'Populate auth file with SFDX_URL secret of integration org'
+            - name: 'Populate auth file with SFDX_URL secret of UAT org'
               shell: bash
               run: |
                   echo ${{ secrets.SFDX_UAT_URL}} > ./SFDX_UAT_URL.txt
