@@ -7,6 +7,6 @@
   ],
   "name": "ApexSuperBadge",
   "namespace": "",
-  "sfdcLoginUrl": "https://vegorov-230314-134-demo--pardev1.sandbox.my.salesforce.com/",
+  "sfdcLoginUrl": "https://vegorov-230314-134-demo.my.salesforce.com",
   "sourceApiVersion": "56.0"
 }
