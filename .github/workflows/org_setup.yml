@@ -76,9 +76,13 @@ jobs:
       - uses: actions/setup-go@v3
         with:
           go-version: '>=1.17'
-      - name: Create Org
-        run: |
-          cci org scratch ${{ github.event.inputs.org }} ${{ github.event.inputs.name }} --days ${{ github.event.inputs.days }}
+     # - name: Create Org
+     #   run: |
+     #     cci org scratch ${{ github.event.inputs.org }} ${{ github.event.inputs.name }} --days ${{ github.event.inputs.days }}
+     - name: 'Create scratch org'
+        uses: forcedotcom/salesforcedx-actions@master
+         with:
+           args: 'force:org:create -f config/project-scratch-def.json -a scratch-org -s -d 1'
       - name: Run ${{ github.event.inputs.flow }} Flow
         run: |
          cci flow run ${{ github.event.inputs.flow }} \
