@@ -48,7 +48,7 @@ jobs:
       id-token: write
       contents: read
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - name: Name Org Alias
         run: |
           perl -i -pe 's/lwcgoogleplacesbutton - Dev Org/${{ github.event.inputs.name }}/g;' orgs/dev.json
@@ -66,7 +66,7 @@ jobs:
         run: |
           sfdx force:limits:api:display -u DevHub
       - name: Set up Python
-        uses: actions/setup-python@v1
+        uses: actions/setup-python@v2
         with:
           python-version: '3.8'
       - name: Install CumulusCI
