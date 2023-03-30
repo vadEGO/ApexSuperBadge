@@ -1,4 +1,4 @@
-name: Org Setup
+name: org_setupw
 run-name: '${{ github.event.inputs.name }}::${{ github.event.inputs.org }}::${{ github.event.inputs.flow }}::${{ github.event.inputs.days }}::${{ github.event.inputs.version }}::${{ github.event.inputs.delete_on_failure }}'
 
 on:
