@@ -1,3 +1,4 @@
 {
-  "defaultusername": "QA-Devops"
+  "defaultusername": "QA-Devops",
+  "defaultdevhubusername": "DevHub"
 }

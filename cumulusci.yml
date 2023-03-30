@@ -1,0 +1,8 @@
+minimum_cumulusci_version: '3.27.0'
+project:
+    name: ApexSuperBadge
+    package:
+        name: ApexSuperBadge
+        api_version: '50.0'
+    git:
+    source_format: sfdx
