@@ -3,7 +3,7 @@ import { ShowToastEvent } from 'lightning/platformShowToastEvent';
 
 export default class MiscNotification extends LightningElement {
     _title = 'Bedrock Badge';
-    message = 'We are using GitHub Acitons';
+    message = 'We are using GitHub Acitons for Release';
     variant = 'error';
     variantOptions = [
         { label: 'error', value: 'error' },
