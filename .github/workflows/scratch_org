@@ -48,7 +48,7 @@ jobs:
       id-token: write
       contents: read
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - name: Name Org Alias
         run: |
           perl -i -pe 's/lwcgoogleplacesbutton - Dev Org/${{ github.event.inputs.name }}/g;' orgs/dev.json
@@ -66,7 +66,7 @@ jobs:
         run: |
           sfdx force:limits:api:display -u DevHub
       - name: Set up Python
-        uses: actions/setup-python@v1
+        uses: actions/setup-python@v2
         with:
           python-version: '3.8'
       - name: Install CumulusCI
@@ -76,9 +76,13 @@ jobs:
       - uses: actions/setup-go@v3
         with:
           go-version: '>=1.17'
-      - name: Create Org
-        run: |
-          cci org scratch ${{ github.event.inputs.org }} ${{ github.event.inputs.name }} --days ${{ github.event.inputs.days }}
+     # - name: Create Org
+     #   run: |
+     #     cci org scratch ${{ github.event.inputs.org }} ${{ github.event.inputs.name }} --days ${{ github.event.inputs.days }}
+     - name: 'Create scratch org'
+        uses: forcedotcom/salesforcedx-actions@master
+         with:
+           args: 'force:org:create -f config/project-scratch-def.json -a scratch-org -s -d 1'
       - name: Run ${{ github.event.inputs.flow }} Flow
         run: |
          cci flow run ${{ github.event.inputs.flow }} \
