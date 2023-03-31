@@ -7,5 +7,5 @@
         <userField>Contact</userField>
     </accessMappings>
     <name>Opportunities Shared With Partner Users</name>
-    <profiles>Partner Community User</profiles>
+    <profiles>partner community user</profiles>
 </SharingSet>

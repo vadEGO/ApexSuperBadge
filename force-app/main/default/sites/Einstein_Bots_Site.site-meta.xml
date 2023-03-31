@@ -26,6 +26,5 @@
     <siteAdmin>vegorov@devops-badge.demo</siteAdmin>
     <siteGuestRecordDefaultOwner>vegorov@devops-badge.demo</siteGuestRecordDefaultOwner>
     <siteType>ChatterNetwork</siteType>
-    <subdomain>sfdofy21tso-1816463f174-186de9131de</subdomain>
     <urlPathPrefix>bot</urlPathPrefix>
 </CustomSite>

@@ -2,7 +2,7 @@
 <LiveChatAgentConfig xmlns="http://soap.sforce.com/2006/04/metadata">
     <assignments>
         <profiles>
-            <profile>Admin</profile>
+            <profile>admin</profile>
         </profiles>
     </assignments>
     <autoGreeting>Hello {!LiveAgent_VisitorName}, my name is {!User_FirstName}. How can I help you today?</autoGreeting>
