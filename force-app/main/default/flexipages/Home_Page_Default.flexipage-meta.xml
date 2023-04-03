@@ -11,6 +11,12 @@
                 <identifier>home_newsPanel</identifier>
             </componentInstance>
         </itemInstances>
+        <itemInstances>
+            <componentInstance>
+                <componentName>homePageComponent</componentName>
+                <identifier>c_homePageComponent</identifier>
+            </componentInstance>
+        </itemInstances>
         <mode>Replace</mode>
         <name>top</name>
         <type>Region</type>
